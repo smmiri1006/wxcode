@@ -1,0 +1,218 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0f172a;
+  font-family: "Inter", "Microsoft YaHei", sans-serif;
+  min-height: 100vh;
+  padding: 1.5rem;
+  color: #e2e8f0;
+}
+.app-container { max-width: 1200px; margin: 0 auto; }
+.top-bar {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-radius: 1.2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #334155;
+  overflow: hidden;
+}
+.logo-section {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .8rem;
+}
+.logo h1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #60a5fa, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.logo p { font-size: .7rem; color: #94a3b8; }
+.api-panel {
+  padding: .8rem 1.5rem;
+  background: #0f172a80;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .8rem;
+}
+.api-buttons, .btn-group, .flex-row { display: flex; gap: .5rem; align-items: center; }
+.api-btn-sm, .btn-sm, .btn, select {
+  cursor: pointer;
+  transition: all .2s;
+}
+.api-btn-sm {
+  padding: .35rem 1rem;
+  border-radius: 2rem;
+  font-size: .75rem;
+  font-weight: 600;
+  border: 1px solid #475569;
+  background: #3b82f6;
+  color: white;
+}
+.api-btn-sm span { font-size: .6rem; }
+.custom-api-group {
+  display: flex; align-items: center; gap: .5rem; flex: 1; max-width: 560px;
+}
+.custom-api-group input, select {
+  background: #0f172a;
+  border: 1px solid #334155;
+  padding: .35rem .7rem;
+  border-radius: 2rem;
+  color: #e2e8f0;
+  font-size: .75rem;
+  font-family: monospace;
+  flex: 1;
+}
+.btn-sm {
+  padding: .35rem .8rem;
+  border-radius: 2rem;
+  font-size: .7rem;
+  border: none;
+  background: #334155;
+  color: #e2e8f0;
+}
+.btn-outline-sm { background: transparent; border: 1px solid #475569; }
+.current-api {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background: #1e293b;
+  padding: .3rem .8rem;
+  border-radius: 2rem;
+  font-size: .7rem;
+}
+.current-api span:first-child { color: #94a3b8; }
+.current-api span:last-child {
+  color: #60a5fa; font-family: monospace; max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.col { flex: 1; min-width: 350px; }
+.card {
+  background: #1e293b;
+  border-radius: 1.2rem;
+  border: 1px solid #334155;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.card-header {
+  padding: .9rem 1.2rem;
+  background: #0f172a;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-weight: 600;
+  font-size: .9rem;
+}
+.card-body { padding: 1.2rem; }
+.card-body.compact { padding: .8rem; }
+.qrcard { text-align: center; }
+.qrcode-wrapper {
+  background: white;
+  border-radius: 1rem;
+  padding: .8rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.qrcode-img {
+  width: 200px;
+  height: 200px;
+  background: #f1f5f9;
+  border-radius: .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.qrcode-img img { width: 100%; height: 100%; object-fit: contain; }
+.qrcode-placeholder { text-align: center; color: #64748b; font-size: 11px; }
+.placeholder-icon { font-size: 42px; line-height: 1; margin-bottom: .35rem; }
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: .5rem;
+  margin-bottom: .8rem;
+}
+.btn {
+  padding: .45rem .9rem;
+  border-radius: .5rem;
+  font-weight: 500;
+  font-size: .75rem;
+  border: none;
+  background: #334155;
+  color: #e2e8f0;
+}
+.btn-primary { background: #3b82f6; color: white; }
+.btn-success { background: #10b981; color: white; }
+.btn-danger { background: #ef4444; color: white; }
+.btn-outline { background: transparent; border: 1px solid #475569; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.current-uuid {
+  background: #0f172a;
+  border-radius: .5rem;
+  padding: .5rem;
+  margin-top: .8rem;
+  font-size: .65rem;
+  color: #60a5fa;
+  word-break: break-all;
+  text-align: left;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem 0;
+  border-bottom: 1px solid #334155;
+  font-size: .75rem;
+}
+.info-label { color: #94a3b8; font-weight: 500; }
+.info-value {
+  color: #e2e8f0;
+  font-family: monospace;
+  word-break: break-all;
+  text-align: right;
+  max-width: 60%;
+  font-size: .7rem;
+}
+.user-info-value { color: #34d399; font-weight: 500; }
+.log-area {
+  background: #0f172a;
+  border-radius: .8rem;
+  padding: .8rem;
+  height: 320px;
+  overflow-y: auto;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .65rem;
+}
+.log-item { padding: .25rem 0; border-bottom: 1px solid #1e293b; color: #94a3b8; }
+.log-time { color: #10b981; margin-right: .5rem; }
+.log-item.success { color: #34d399; }
+.log-item.error { color: #f87171; }
+.log-item.warning { color: #fbbf24; }
+.badge-success, .badge-warning {
+  padding: .15rem .4rem; border-radius: 1rem; font-size: .65rem;
+}
+.badge-success { background: #10b98120; color: #34d399; }
+.badge-warning { background: #f59e0b20; color: #fbbf24; }
+.heartbeat-control { margin-top: .8rem; padding-top: .8rem; border-top: 1px solid #334155; }
+.heartbeat-status { display: flex; align-items: center; justify-content: space-between; margin-bottom: .5rem; }
+.heartbeat-badge {
+  display: inline-flex; align-items: center; gap: .3rem; padding: .15rem .5rem; border-radius: 1rem; font-size: .65rem;
+}
+.heartbeat-active { background: #10b98120; color: #34d399; }
+.heartbeat-inactive { background: #ef444420; color: #f87171; }
+.heartbeat-dot { width: 5px; height: 5px; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite; }
+.heartbeat-dot.active { background: #34d399; }
+.heartbeat-dot.inactive { background: #f87171; animation: none; }
+.status-line { margin-top: .5rem; justify-content: space-between; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+@media (max-width: 900px) {
+  body { padding: 1rem; }
+  .custom-api-group { max-width: 100%; }
+  .qrcode-img { width: 180px; height: 180px; }
+}
