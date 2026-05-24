@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>微信扫码协议 · Code Web 接口 · 全平台二维码登录</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="app-container">
+  <div class="top-bar">
+    <div class="logo-section">
+      <div class="logo">
+        <h1>微信扫码协议 · Code Web 接口</h1>
+        <p>iPad | Mac | Android | Windows | 统一版 | UWP | Car | 特殊通道</p>
+      </div>
+      <div class="current-api">
+        <span>当前接口:</span>
+        <span id="activeApiDisplay">--</span>
+      </div>
+    </div>
+    <div class="api-panel">
+      <div class="api-buttons">
+        <button class="api-btn-sm active" id="localApiBtn">本地接口<br><span>127.0.0.1:3218</span></button>
+      </div>
+      <div class="custom-api-group">
+        <input type="text" id="apiBaseUrl" value="http://127.0.0.1:3218" placeholder="Web 接口地址">
+        <button class="btn-sm btn-outline-sm" id="applyApiBtn">应用</button>
+        <button class="btn-sm btn-outline-sm" id="testApiBtn">测试</button>
+        <button class="btn-sm btn-outline-sm" id="copyLatestApiBtn">复制取码接口</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header"><span>📱</span> 选择平台获取二维码</div>
+        <div class="card-body qrcard">
+          <div class="qrcode-wrapper">
+            <div class="qrcode-img" id="qrcodeContainer">
+              <div class="qrcode-placeholder">
+                <div class="placeholder-icon">⌁</div>
+                <p>选择下方平台获取登录二维码</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="platform-grid" id="platformGrid"></div>
+
+          <div class="btn-group">
+            <button class="btn btn-success" id="checkSessionBtn" disabled>检测扫码</button>
+            <button class="btn btn-danger" id="clearSessionBtn" disabled>清除会话</button>
+          </div>
+
+          <div class="current-uuid" id="uuidDisplay">Session ID: 暂无</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-header"><span>👤</span> 会话信息</div>
+        <div class="card-body">
+          <div class="info-row"><span class="info-label">登录状态</span><span class="info-value" id="loginStatus">未开始</span></div>
+          <div class="info-row"><span class="info-label">当前协议</span><span class="info-value" id="protocolValue">--</span></div>
+          <div class="info-row"><span class="info-label">会话名称</span><span class="info-value" id="sessionNameValue">--</span></div>
+          <div class="info-row"><span class="info-label">Session ID</span><span class="info-value" id="sessionIdValue">--</span></div>
+          <div class="info-row"><span class="info-label">Code / Value</span><span class="info-value user-info-value" id="codeValue">--</span></div>
+          <div class="info-row"><span class="info-label">最新取码接口</span><span class="info-value" id="latestApiValue">--</span></div>
+          <div class="info-row"><span class="info-label">单会话取码接口</span><span class="info-value" id="singleApiValue">--</span></div>
+
+          <div class="heartbeat-control">
+            <div class="heartbeat-status">
+              <span class="info-label">自动轮询</span>
+              <span id="pollStatusBadge" class="heartbeat-badge heartbeat-inactive">
+                <span class="heartbeat-dot inactive"></span> 未启动
+              </span>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-primary" id="startPollBtn">开启</button>
+              <button class="btn btn-danger" id="stopPollBtn">停止</button>
+              <button class="btn btn-outline" id="copyCodeBtn" disabled>复制 Code</button>
+            </div>
+            <div class="flex-row status-line">
+              <span class="info-label">轮询间隔</span>
+              <select id="pollInterval">
+                <option value="2000">2秒</option>
+                <option value="3000" selected>3秒</option>
+                <option value="5000">5秒</option>
+              </select>
+              <span class="info-label">次数: <span id="pollCount">0</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><span>📋</span> 协议日志</div>
+        <div class="card-body compact">
+          <div class="log-area" id="logPanel">
+            <div class="log-item"><span class="log-time">●</span> 系统就绪</div>
+            <div class="log-item"><span class="log-time">ℹ️</span> 页面负责扫码登录，脚本通过 Web 接口取 code</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
